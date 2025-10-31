@@ -1,6 +1,8 @@
 import { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Landing() {
+  const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
   const [showGameInfo, setShowGameInfo] = useState(false);
@@ -120,47 +122,42 @@ export default function Landing() {
                 
                 <div className="space-y-4">
                   <div>
-                    <div className="text-white font-semibold mb-2 text-sm">RACERS</div>
-                    <div className="text-gray-400 text-sm space-y-1">
-                      <p>• Earn guaranteed rewards</p>
-                      <p>• Race live in 2D F1</p>
-                      <p>• No empty-handed exits</p>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-gray-800 pt-4">
-                    <div className="text-white font-semibold mb-2 text-sm">VIEWERS</div>
-                    <div className="text-gray-400 text-sm space-y-1">
-                      <p>• Bet with Sepolia ETH</p>
-                      <p>• Win 90% of pot</p>
-                      <p>• AI predicts winners</p>
-                    </div>
-                  </div>
-
-                  <div className="border-t border-gray-800 pt-4">
                     <div className="text-white font-semibold mb-2 text-sm">SPONSORS</div>
                     <div className="text-gray-400 text-sm space-y-1">
-                      <p>• Pay once, show ads</p>
-                      <p>• Reach live audience</p>
-                      <p>• Boost brand in-game</p>
+                      <p>• Create custom event rooms with unique IDs</p>
+                      <p>• Set any prize pool amount</p>
+                      <p>• Manage participants and distribute rewards</p>
+                      <p>• Full control over your events</p>
                     </div>
                   </div>
 
                   <div className="border-t border-gray-800 pt-4">
-                    <div className="text-white font-semibold mb-2 text-sm">ORGANISERS</div>
+                    <div className="text-white font-semibold mb-2 text-sm">PLAYERS</div>
                     <div className="text-gray-400 text-sm space-y-1">
-                      <p>• Host races easily</p>
-                      <p>• Earn 10% rake</p>
-                      <p>• Full on-chain control</p>
+                      <p>• Join any event room with Room ID</p>
+                      <p>• No entry fees required</p>
+                      <p>• Compete for sponsor-funded prizes</p>
+                      <p>• Transparent on-chain gameplay</p>
                     </div>
                   </div>
 
                   <div className="border-t border-gray-800 pt-4">
                     <div className="text-white font-semibold mb-2 text-sm">EVERYONE</div>
                     <div className="text-gray-400 text-sm space-y-1">
-                      <p>• Wallet login only</p>
-                      <p>• Transparent payouts</p>
-                      <p>• Real-time Web3 fun</p>
+                      <p>• MetaMask wallet login only</p>
+                      <p>• Real-time event participation</p>
+                      <p>• Transparent prize distribution</p>
+                      <p>• Powered by Ethereum smart contracts</p>
+                    </div>
+                  </div>
+
+                  <div className="border-t border-gray-800 pt-4">
+                    <div className="text-white font-semibold mb-2 text-sm">WEB3 FEATURES</div>
+                    <div className="text-gray-400 text-sm space-y-1">
+                      <p>• Decentralized event hosting</p>
+                      <p>• Trustless prize pools</p>
+                      <p>• Immutable participant records</p>
+                      <p>• No intermediaries needed</p>
                     </div>
                   </div>
                 </div>
@@ -170,44 +167,55 @@ export default function Landing() {
               <div>
                 <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                   <span className="w-1 h-6 bg-white"></span>
-                  What Each Entity Can Do
+                  Join as
                 </h2>
                 
-                <div className="space-y-6">
-                  <div className="border-l-2 border-gray-600 pl-4">
-                    <div className="text-white font-semibold mb-2">Organiser</div>
-                    <div className="text-gray-400 text-sm">
-                      Create race → Set entry fee → Start & earn rake
+                <div className="space-y-4">
+                  <button
+                    onClick={() => navigate('/sponsor')}
+                    className="w-full p-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl text-left hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg"
+                  >
+                    <div className="text-2xl font-bold mb-2">🏆 Sponsor</div>
+                    <div className="text-sm text-white/80">
+                      Create racing events, set prize pools, and manage participants
                     </div>
-                  </div>
+                  </button>
 
-                  <div className="border-l-2 border-gray-600 pl-4">
-                    <div className="text-white font-semibold mb-2">Racer</div>
-                    <div className="text-gray-400 text-sm">
-                      Pay to join → Compete live → Claim prize share
+                  <button
+                    onClick={() => navigate('/player')}
+                    className="w-full p-6 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl text-left hover:from-blue-700 hover:to-cyan-700 transition-all shadow-lg"
+                  >
+                    <div className="text-2xl font-bold mb-2">🎮 Player</div>
+                    <div className="text-sm text-white/80">
+                      Join racing events and compete for prizes
                     </div>
-                  </div>
-
-                  <div className="border-l-2 border-gray-600 pl-4">
-                    <div className="text-white font-semibold mb-2">Viewer</div>
-                    <div className="text-gray-400 text-sm">
-                      Watch race → Bet on driver → Claim winnings
-                    </div>
-                  </div>
-
-                  <div className="border-l-2 border-gray-600 pl-4">
-                    <div className="text-white font-semibold mb-2">Sponsor</div>
-                    <div className="text-gray-400 text-sm">
-                      Pay ETH → Upload ad → Display on track
-                    </div>
-                  </div>
+                  </button>
                 </div>
 
                 {/* Tech Stack Info */}
                 <div className="mt-12 p-4 bg-gray-900/50 border border-gray-800 rounded">
                   <div className="text-xs text-gray-500 uppercase tracking-wider mb-2">Tech Stack</div>
                   <div className="text-sm text-gray-300">
-                    Ethereum Sepolia Testnet • WebSocket Racing • 2D F1 Game Engine
+                    Ethereum Sepolia Testnet • Smart Contracts • Web3 Gaming
+                  </div>
+                </div>
+
+                {/* How It Works */}
+                <div className="mt-6 p-4 bg-gray-900/50 border border-gray-800 rounded">
+                  <div className="text-xs text-gray-500 uppercase tracking-wider mb-3">How It Works</div>
+                  <div className="space-y-3 text-sm text-gray-300">
+                    <div className="flex items-start gap-3">
+                      <span className="text-purple-400 font-bold">1.</span>
+                      <span>Sponsor creates event room with Room ID and prize pool</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-blue-400 font-bold">2.</span>
+                      <span>Players join using the Room ID</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-green-400 font-bold">3.</span>
+                      <span>Sponsor distributes prizes to winners</span>
+                    </div>
                   </div>
                 </div>
               </div>
